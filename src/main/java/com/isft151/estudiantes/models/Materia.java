@@ -16,5 +16,7 @@ public class Materia {
     @Column(name = "id")
     private Long id;
     private String nombre;
+    @ManyToOne
+    private Carrera carrera;
     private Integer anio;
 }

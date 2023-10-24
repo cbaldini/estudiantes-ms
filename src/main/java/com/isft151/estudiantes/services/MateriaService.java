@@ -24,6 +24,7 @@ public class MateriaService {
 
     public Materia setMateriaNuevaOExistente(MateriaRequest materiaRequest, Materia materia) {
         if(materiaRepository.findByNombre(materiaRequest.getNombre()).isEmpty()) {
+
             materiaRepository.save(materia);
         }
         else {

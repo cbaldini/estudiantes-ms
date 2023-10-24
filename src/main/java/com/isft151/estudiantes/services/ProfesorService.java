@@ -25,8 +25,9 @@ public class ProfesorService {
     private PersonaService personaService;
 
     public ResponseEntity setProfesor(ProfesorRequest profesorRequest) throws SQLException {
-
-        Profesor profesor = profesorMapper.profesorRequestToProfesor(profesorRequest);
+        Profesor profesor = new Profesor();
+        setPersonaNuevaOExistente(profesorRequest, profesor);
+        profesor = profesorMapper.profesorRequestToProfesor(profesorRequest, profesor);
 
         try {
         profesorRepository.save(profesor);
@@ -40,7 +41,9 @@ public class ProfesorService {
 
     public void setPersonaNuevaOExistente(ProfesorRequest profesorRequest, Profesor profesor) {
         if(personaService.getByDni(profesorRequest.getPersona().getDni()).isEmpty()) {
-            profesor.setPersona(profesorMapper.profesorRequestToPersona(profesorRequest));
+            Persona persona = profesorMapper.profesorRequestToPersona(profesorRequest);
+            profesor.setPersona(persona);
+            personaService.save(persona);
         }
         else {
             profesor.setPersona(personaService.getByDni(profesorRequest.getPersona().getDni()).get(0));

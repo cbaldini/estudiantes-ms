@@ -14,6 +14,7 @@ public class Estudiante {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+    @OneToOne
     private Persona persona;
     private String legajo;
 }

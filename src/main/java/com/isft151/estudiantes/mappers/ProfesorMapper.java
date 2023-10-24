@@ -22,16 +22,9 @@ public class ProfesorMapper {
     @Autowired
     private MateriaService materiaService;
 
-    @Autowired
-    private PersonaService personaService;
+    public Profesor profesorRequestToProfesor(ProfesorRequest profesorRequest, Profesor profesor){
 
-    @Autowired
-    private ProfesorService profesorService;
 
-    public Profesor profesorRequestToProfesor(ProfesorRequest profesorRequest){
-
-        Profesor profesor = new Profesor();
-        profesorService.setPersonaNuevaOExistente(profesorRequest, profesor);
         List<Materia> materiaList = new ArrayList<>();
         for (MateriaRequest materiaRequest :profesorRequest.getMaterias()) {
 
@@ -57,7 +50,6 @@ public class ProfesorMapper {
         persona.setDireccion(profesorRequest.getPersona().getDireccion());
         persona.setTelefono(profesorRequest.getPersona().getTelefono());
         persona.setMail(profesorRequest.getPersona().getMail());
-        personaService.save(persona);
         return persona;
     }
 }

@@ -14,7 +14,9 @@ public class Examen {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+    @ManyToOne
     private Materia materia;
     private Enum tipoExamen;
+    private String legajoEstudiante;
     private Integer calificacion;
 }
