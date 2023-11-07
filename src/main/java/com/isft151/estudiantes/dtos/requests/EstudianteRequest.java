@@ -1,4 +1,4 @@
-package com.isft151.estudiantes.dtos;
+package com.isft151.estudiantes.dtos.requests;
 
 import com.isft151.estudiantes.models.Persona;
 import lombok.Data;

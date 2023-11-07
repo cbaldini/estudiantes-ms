@@ -1,4 +1,4 @@
-package com.isft151.estudiantes.dtos;
+package com.isft151.estudiantes.dtos.responses;
 
 import lombok.Data;
 

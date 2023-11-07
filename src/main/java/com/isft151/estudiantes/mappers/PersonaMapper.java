@@ -1,8 +1,8 @@
 package com.isft151.estudiantes.mappers;
 
-import com.isft151.estudiantes.dtos.PersonaRequest;
-import com.isft151.estudiantes.dtos.PersonaResponse;
-import com.isft151.estudiantes.dtos.PersonasResponse;
+import com.isft151.estudiantes.dtos.requests.PersonaRequest;
+import com.isft151.estudiantes.dtos.responses.PersonaResponse;
+import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.models.Persona;
 import org.springframework.stereotype.Service;
 

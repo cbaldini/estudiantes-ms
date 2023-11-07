@@ -1,20 +1,16 @@
 package com.isft151.estudiantes.mappers;
 
-import com.isft151.estudiantes.dtos.*;
+import com.isft151.estudiantes.dtos.requests.MateriaRequest;
+import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
 import com.isft151.estudiantes.models.Materia;
 import com.isft151.estudiantes.models.Persona;
 import com.isft151.estudiantes.models.Profesor;
-import com.isft151.estudiantes.repositories.MateriaRepository;
-import com.isft151.estudiantes.repositories.PersonaRepository;
 import com.isft151.estudiantes.services.MateriaService;
-import com.isft151.estudiantes.services.PersonaService;
-import com.isft151.estudiantes.services.ProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class ProfesorMapper {
@@ -26,7 +22,7 @@ public class ProfesorMapper {
 
 
         List<Materia> materiaList = new ArrayList<>();
-        for (MateriaRequest materiaRequest :profesorRequest.getMaterias()) {
+        for (MateriaRequest materiaRequest : profesorRequest.getMaterias()) {
 
                 Materia materia = new Materia();
                 materia.setNombre(materiaRequest.getNombre());

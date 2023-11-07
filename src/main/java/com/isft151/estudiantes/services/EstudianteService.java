@@ -1,6 +1,6 @@
 package com.isft151.estudiantes.services;
 
-import com.isft151.estudiantes.dtos.EstudianteRequest;
+import com.isft151.estudiantes.dtos.requests.EstudianteRequest;
 import com.isft151.estudiantes.mappers.EstudianteMapper;
 import com.isft151.estudiantes.models.Estudiante;
 import com.isft151.estudiantes.models.Persona;
@@ -38,13 +38,13 @@ public class EstudianteService {
     }
     
     public void setPersonaNuevaOExistente(EstudianteRequest estudianteRequest, Estudiante estudiante) {
-        if(personaService.getByDni(estudianteRequest.getPersona().getDni()).isEmpty()) {
+        if(personaService.findByDni(estudianteRequest.getPersona().getDni()).isEmpty()) {
             Persona persona = estudianteMapper.estudianteRequestToPersona(estudianteRequest);
             estudiante.setPersona(persona);
             personaService.save(persona);
         }
         else {
-            estudiante.setPersona(personaService.getByDni(estudianteRequest.getPersona().getDni()).get(0));
+            estudiante.setPersona(personaService.findByDni(estudianteRequest.getPersona().getDni()).get(0));
         }
     }
 }

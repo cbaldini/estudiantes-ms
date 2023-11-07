@@ -1,6 +1,6 @@
 package com.isft151.estudiantes.services;
 
-import com.isft151.estudiantes.dtos.MateriaRequest;
+import com.isft151.estudiantes.dtos.requests.MateriaRequest;
 import com.isft151.estudiantes.models.Materia;
 import com.isft151.estudiantes.repositories.MateriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
