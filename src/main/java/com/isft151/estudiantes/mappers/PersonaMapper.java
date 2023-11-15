@@ -11,9 +11,8 @@ import java.util.List;
 
 @Service
 public class PersonaMapper {
-    public Persona personaRequestToPersona(PersonaRequest personaRequest){
+    public Persona personaRequestToPersona(Persona persona, PersonaRequest personaRequest){
 
-        Persona persona = new Persona();
         persona.setNombre(personaRequest.getNombre());
         persona.setApellido(personaRequest.getApellido());
         persona.setDni(personaRequest.getDni());

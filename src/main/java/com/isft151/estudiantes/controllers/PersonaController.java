@@ -27,7 +27,21 @@ public class PersonaController {
     @Produces(MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity nuevaPersona(@RequestBody PersonaRequest personaRequest) {
 
-        return personaService.setPersona(personaRequest);
+        return personaService.newPersona(personaRequest);
+    }
+
+    @PutMapping("/actualizarPersona/{id}")
+    @Produces(MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity actualizarPersona(@PathVariable("id") Long id, @RequestBody PersonaRequest personaRequest) {
+
+        return personaService.updatePersona(personaRequest, id);
+    }
+
+    @PutMapping("/actualizarPersona")
+    @Produces(MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity actualizarPersonaPorDni(@RequestBody PersonaRequest personaRequest) {
+
+        return personaService.updatePersonaByDni(personaRequest);
     }
 
     // Permite listar personas con GET.

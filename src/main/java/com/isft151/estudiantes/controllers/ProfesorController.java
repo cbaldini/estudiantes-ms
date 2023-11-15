@@ -1,6 +1,8 @@
 package com.isft151.estudiantes.controllers;
 
 import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
+import com.isft151.estudiantes.dtos.responses.PersonasResponse;
+import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
 import com.isft151.estudiantes.services.ProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -36,4 +38,15 @@ public class ProfesorController {
             return ResponseEntity.badRequest().body("No se pudo eliminar el registro. El error es: " + ex.getMessage());
         }
     }
+
+    // Permite listar personas con GET.
+    @GetMapping("/listarProfesores")
+    @Produces(MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ProfesorResponse listarPersonas(){
+
+//        return profesorService.
+        return null;
+    }
+
 }

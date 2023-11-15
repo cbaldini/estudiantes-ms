@@ -1,6 +1,9 @@
 package com.isft151.estudiantes.services;
 
 import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
+import com.isft151.estudiantes.dtos.responses.PersonaResponse;
+import com.isft151.estudiantes.dtos.responses.PersonasResponse;
+import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
 import com.isft151.estudiantes.mappers.ProfesorMapper;
 import com.isft151.estudiantes.models.Persona;
 import com.isft151.estudiantes.models.Profesor;
@@ -10,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProfesorService {
@@ -53,5 +58,21 @@ public class ProfesorService {
 
     public void deleteProfesor(Long id) {
         profesorRepository.deleteById(id);
+    }
+
+    public ProfesorResponse buildProfesorResponse(Persona persona) {
+        List<PersonaResponse> personaResponseList = new ArrayList<>();
+
+            PersonaResponse personaResponse = new PersonaResponse();
+            personaResponse.setApellido(persona.getApellido());
+            personaResponse.setNombre(persona.getNombre());
+            personaResponse.setDireccion(persona.getDireccion());
+            personaResponse.setTelefono(persona.getTelefono());
+            personaResponse.setMail(persona.getMail());
+            personaResponse.setDni(persona.getDni());
+
+        ProfesorResponse profesorResponse = new ProfesorResponse();
+        profesorResponse.setProfesor(personaResponse);
+        return profesorResponse;
     }
 }
