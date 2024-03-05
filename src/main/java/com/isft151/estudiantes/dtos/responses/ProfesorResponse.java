@@ -10,5 +10,5 @@ import java.util.List;
 public class ProfesorResponse {
 
     private PersonaResponse profesor;
-//    private List<MateriaResponse> materias;
+    private List<MateriaResponse> materias;
 }

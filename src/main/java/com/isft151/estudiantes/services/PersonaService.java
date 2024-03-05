@@ -1,6 +1,7 @@
 package com.isft151.estudiantes.services;
 
 import com.isft151.estudiantes.dtos.requests.PersonaRequest;
+import com.isft151.estudiantes.dtos.responses.PersonaResponse;
 import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.mappers.PersonaMapper;
 import com.isft151.estudiantes.models.Persona;
@@ -82,10 +83,6 @@ public class PersonaService {
         return personaRepository.findByDni(dni);
     }
 
-    public Optional<Persona> findById(Long id) {
-
-        return personaRepository.findById(id);
-    }
     public Persona save(Persona persona) {
         return personaRepository.save(persona);
     }
