@@ -1,6 +1,5 @@
 package com.isft151.estudiantes.mocks;
 
-import com.isft151.estudiantes.dtos.requests.MateriaRequest;
 import com.isft151.estudiantes.dtos.responses.MateriaResponse;
 
 import java.util.ArrayList;

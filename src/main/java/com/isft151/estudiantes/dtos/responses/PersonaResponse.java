@@ -1,11 +1,13 @@
 package com.isft151.estudiantes.dtos.responses;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 
-@Data
+@Getter
+@Builder
 public class PersonaResponse {
-    private String Nombre;
-    private String Apellido;
+    private String nombre;
+    private String apellido;
     private String dni;
     private String telefono;
     private String mail;

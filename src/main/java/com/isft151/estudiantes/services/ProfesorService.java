@@ -2,7 +2,6 @@ package com.isft151.estudiantes.services;
 
 import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
 import com.isft151.estudiantes.dtos.responses.PersonaResponse;
-import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
 import com.isft151.estudiantes.mappers.ProfesorMapper;
 import com.isft151.estudiantes.models.Persona;
@@ -63,16 +62,19 @@ public class ProfesorService {
     public ProfesorResponse buildProfesorResponse(Persona persona) {
         List<PersonaResponse> personaResponseList = new ArrayList<>();
 
-            PersonaResponse personaResponse = new PersonaResponse();
-            personaResponse.setApellido(persona.getApellido());
-            personaResponse.setNombre(persona.getNombre());
-            personaResponse.setDireccion(persona.getDireccion());
-            personaResponse.setTelefono(persona.getTelefono());
-            personaResponse.setMail(persona.getMail());
-            personaResponse.setDni(persona.getDni());
+            PersonaResponse personaResponse = PersonaResponse.builder()
+                    .apellido(persona.getApellido())
+                    .nombre(persona.getNombre())
+                    .direccion(persona.getDireccion())
+                    .telefono(persona.getTelefono())
+                    .dni(persona.getDni())
+                    .mail(persona.getMail())
+                    .build();
 
-        ProfesorResponse profesorResponse = new ProfesorResponse();
-        profesorResponse.setProfesor(personaResponse);
+        ProfesorResponse profesorResponse = ProfesorResponse.builder()
+                .profesor(personaResponse)
+                .build();
+
         return profesorResponse;
     }
 }

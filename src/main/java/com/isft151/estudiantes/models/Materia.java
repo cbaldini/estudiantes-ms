@@ -1,14 +1,14 @@
 package com.isft151.estudiantes.models;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Table(name = "materia")
 @Entity
 @Getter
-@Setter
+@Builder
 public class Materia {
 
     @Id

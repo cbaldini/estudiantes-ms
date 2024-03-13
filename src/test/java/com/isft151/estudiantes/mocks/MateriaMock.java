@@ -8,11 +8,14 @@ import java.util.List;
 public class MateriaMock {
 
     public static Materia mockEntity() {
-        Materia materia = new Materia();
-        materia.setId(1L);
-        materia.setNombre("Seminario de Programación");
-        materia.setAnio(2);
-        materia.setCarrera(CarreraMock.mockEntity());
+
+        Materia materia = Materia.builder()
+                .id(1L)
+                .nombre("Seminario de Programación")
+                .anio(2)
+                .carrera(CarreraMock.mockEntity())
+                .build();
+
         return materia;
     }
 

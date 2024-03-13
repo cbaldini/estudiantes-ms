@@ -1,18 +1,20 @@
 package com.isft151.estudiantes.mocks;
 
-import com.isft151.estudiantes.dtos.requests.PersonaRequest;
 import com.isft151.estudiantes.models.Persona;
 
 public class PersonaMock {
 
     public static Persona mockEntity() {
-        Persona persona = new Persona();
-        persona.setId(1L);
-        persona.setNombre("Cristian");
-        persona.setApellido("Baldini");
-        persona.setDireccion("Calle Falsa N° 123");
-        persona.setMail("cristianbaldini@abc.gob.ar");
-        persona.setDni("33333333");
+        Persona persona = Persona.builder()
+                .id(1L)
+                .nombre("Cristian")
+                .apellido("Baldini")
+                .direccion("Calle Falsa N° 123")
+                .telefono("2222222222")
+                .dni("33333333")
+                .mail("cristianbaldini@abc.gob.ar")
+                .build();
+
         return persona;
     }
 }

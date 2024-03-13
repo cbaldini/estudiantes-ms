@@ -18,13 +18,15 @@ public class EstudianteMapper {
 
     public Persona estudianteRequestToPersona(EstudianteRequest estudianteRequest) {
 
-        Persona persona = new Persona();
-        persona.setNombre(estudianteRequest.getPersona().getNombre());
-        persona.setApellido(estudianteRequest.getPersona().getApellido());
-        persona.setDni(estudianteRequest.getPersona().getDni());
-        persona.setDireccion(estudianteRequest.getPersona().getDireccion());
-        persona.setTelefono(estudianteRequest.getPersona().getTelefono());
-        persona.setMail(estudianteRequest.getPersona().getMail());
+        Persona persona = Persona.builder()
+                .nombre(estudianteRequest.getPersona().getNombre())
+                .apellido(estudianteRequest.getPersona().getApellido())
+                .dni(estudianteRequest.getPersona().getDni())
+                .direccion(estudianteRequest.getPersona().getDireccion())
+                .mail(estudianteRequest.getPersona().getMail())
+                .telefono(estudianteRequest.getPersona().getTelefono())
+                .build();
+
         return persona;
     }
 }

@@ -1,7 +1,6 @@
 package com.isft151.estudiantes.services;
 
 import com.isft151.estudiantes.dtos.requests.PersonaRequest;
-import com.isft151.estudiantes.dtos.responses.PersonaResponse;
 import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.mappers.PersonaMapper;
 import com.isft151.estudiantes.models.Persona;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 // Clase que contiene la
@@ -40,7 +38,7 @@ public class PersonaService {
 
         try {
             Persona persona = personaRepository.findByDni(personaRequest.getDni()).get(0);
-            persona = personaRequestToExistedPersona(persona, personaRequest);
+            persona = personaRequestToExistedPersona(personaRequest);
             personaRepository.save(persona);
             return ResponseEntity.ok("Persona actualizada: " + persona.getNombre() + " " + persona.getApellido());
         }
@@ -53,7 +51,7 @@ public class PersonaService {
 
         try {
             Persona persona = personaRepository.getById(id);
-            persona = personaRequestToExistedPersona(persona, personaRequest);
+            persona = personaRequestToExistedPersona(personaRequest);
             personaRepository.save(persona);
             return ResponseEntity.ok("Persona actualizada: " + persona.getNombre() + " " + persona.getApellido());
         }
@@ -67,11 +65,11 @@ public class PersonaService {
     }
 
     public Persona personaRequestToNewPersona(PersonaRequest personaRequest) {
-        return personaMapper.personaRequestToPersona(new Persona(), personaRequest);
+        return personaMapper.personaRequestToPersona(personaRequest);
     }
 
-    public Persona personaRequestToExistedPersona(Persona persona, PersonaRequest personaRequest) {
-        return personaMapper.personaRequestToPersona(persona, personaRequest);
+    public Persona personaRequestToExistedPersona(PersonaRequest personaRequest) {
+        return personaMapper.personaRequestToPersona(personaRequest);
     }
 
     public PersonasResponse listarPersonas() {

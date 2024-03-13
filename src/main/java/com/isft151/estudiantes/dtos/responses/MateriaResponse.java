@@ -1,6 +1,5 @@
 package com.isft151.estudiantes.dtos.responses;
 
-import com.isft151.estudiantes.dtos.requests.CarreraRequest;
 import com.isft151.estudiantes.dtos.requests.CarreraResponse;
 import lombok.Data;
 

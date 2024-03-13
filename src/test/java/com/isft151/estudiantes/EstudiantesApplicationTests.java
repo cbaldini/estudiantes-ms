@@ -38,10 +38,11 @@ class EstudiantesApplicationTests {
 	private ProfesorService profesorService;
 
 	@Test
-	public void personaServiceReturnsPersonaResponse() throws Exception {
+	public void personaServiceReturnsPersonaResponse() {
 		PersonaRequest personaRequestMock = PersonaRequestMock.mockRequest();
 		PersonaResponse personaResponseMock = PersonaResponseMock.mockResponse();
 		Persona personaMock = PersonaMock.mockEntity();
+
 		// When
 		when(personaRepository.save(personaMock)).thenReturn(personaMock);
 		when(personaService.newPersona(personaRequestMock)).thenReturn

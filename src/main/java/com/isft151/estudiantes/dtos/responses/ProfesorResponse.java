@@ -1,12 +1,12 @@
 package com.isft151.estudiantes.dtos.responses;
 
-import com.isft151.estudiantes.models.Materia;
-import com.isft151.estudiantes.models.Persona;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.List;
 
-@Data
+@Builder
+@Getter
 public class ProfesorResponse {
 
     private PersonaResponse profesor;

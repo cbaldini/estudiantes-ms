@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 public class MateriaMapper {
 
     public Materia materiaRequestToMateria(MateriaRequest materiaRequest) {
-        Materia materia = new Materia();
+        Materia materia = Materia.builder()
+                .nombre(materiaRequest.getNombre())
+                .anio(materiaRequest.getAnio())
+                .build();
         CarreraRequest carreraRequest = new CarreraRequest();
         // Acá tiene que llamar al service para buscar.
         carreraRequest.setNombre(materiaRequest.getNombre());
-        materia.setNombre(materiaRequest.getNombre());
-        materia.setAnio(materiaRequest.getAnio());
 
         return null;
     }

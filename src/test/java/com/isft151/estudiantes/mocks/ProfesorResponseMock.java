@@ -5,9 +5,12 @@ import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
 public class ProfesorResponseMock {
 
     public static ProfesorResponse mockResponse() {
-        ProfesorResponse profesorResponse = new ProfesorResponse();
-        profesorResponse.setProfesor(PersonaResponseMock.mockResponse());
-        profesorResponse.setMaterias(MateriaResponseMock.mockList());
+
+        ProfesorResponse profesorResponse = ProfesorResponse.builder()
+                .profesor(PersonaResponseMock.mockResponse())
+                .materias(MateriaResponseMock.mockList())
+                .build();
+
         return profesorResponse;
     }
 }

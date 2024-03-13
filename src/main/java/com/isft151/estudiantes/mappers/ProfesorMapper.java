@@ -3,9 +3,7 @@ package com.isft151.estudiantes.mappers;
 import com.isft151.estudiantes.dtos.requests.MateriaRequest;
 import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
 import com.isft151.estudiantes.dtos.responses.PersonaResponse;
-import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
-import com.isft151.estudiantes.dtos.responses.ProfesoresResponse;
 import com.isft151.estudiantes.models.Materia;
 import com.isft151.estudiantes.models.Persona;
 import com.isft151.estudiantes.models.Profesor;
@@ -28,9 +26,11 @@ public class ProfesorMapper {
         List<Materia> materiaList = new ArrayList<>();
         for (MateriaRequest materiaRequest : profesorRequest.getMaterias()) {
 
-                Materia materia = new Materia();
-                materia.setNombre(materiaRequest.getNombre());
-                materia.setAnio(materiaRequest.getAnio());
+                Materia materia = Materia.builder()
+                        .nombre(materiaRequest.getNombre())
+                        .anio(materiaRequest.getAnio())
+                        .build();
+
             materia = materiaService.setMateriaNuevaOExistente(materiaRequest, materia);
             materiaList.add(materia);
             }
@@ -43,30 +43,32 @@ public class ProfesorMapper {
 
     public Persona profesorRequestToPersona(ProfesorRequest profesorRequest) {
 
-        Persona persona = new Persona();
-        persona.setNombre(profesorRequest.getPersona().getNombre());
-        persona.setApellido(profesorRequest.getPersona().getApellido());
-        persona.setDni(profesorRequest.getPersona().getDni());
-        persona.setDireccion(profesorRequest.getPersona().getDireccion());
-        persona.setTelefono(profesorRequest.getPersona().getTelefono());
-        persona.setMail(profesorRequest.getPersona().getMail());
+        Persona persona = Persona.builder()
+                .nombre(profesorRequest.getPersona().getNombre())
+                .apellido(profesorRequest.getPersona().getApellido())
+                .dni(profesorRequest.getPersona().getDni())
+                .direccion(profesorRequest.getPersona().getDireccion())
+                .telefono(profesorRequest.getPersona().getTelefono())
+                .mail(profesorRequest.getPersona().getMail())
+                .build();
+
         return persona;
     }
 
     public ProfesorResponse personaToProfesor (Persona persona, List<Materia> materias) {
-        ProfesorResponse profesorResponse = new ProfesorResponse();
-        PersonaResponse profesor = new PersonaResponse();
-        profesor.setNombre(persona.getNombre());
-        profesor.setApellido(persona.getApellido());
-        profesor.setMail(persona.getMail());
-        profesor.setDni(persona.getDni());
-        profesor.setTelefono(persona.getTelefono());
-        profesor.setDireccion(persona.getDireccion());
-        profesorResponse.setProfesor(profesor);
-        for (Materia materia : materias
-             ) {
+        PersonaResponse profesor = PersonaResponse.builder()
+                .apellido(persona.getApellido())
+                .nombre(persona.getNombre())
+                .mail(persona.getMail())
+                .dni(persona.getDni())
+                .direccion(persona.getDireccion())
+                .telefono(persona.getTelefono())
+                .build();
 
-        }
+        ProfesorResponse profesorResponse = ProfesorResponse.builder()
+                .profesor(profesor)
+                .build();
+
 //        profesorResponse.setMaterias();
         return null;
     }

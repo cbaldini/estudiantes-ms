@@ -1,7 +1,6 @@
 package com.isft151.estudiantes.controllers;
 
 import com.isft151.estudiantes.dtos.requests.ProfesorRequest;
-import com.isft151.estudiantes.dtos.responses.PersonasResponse;
 import com.isft151.estudiantes.dtos.responses.ProfesorResponse;
 import com.isft151.estudiantes.services.ProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
